@@ -57,7 +57,7 @@ http://s3.amazonaws.com).  Its design goals are:
 BUILD=$RPM_BUILD_ROOT/build make exported
 
 %install
-BUILD=$RPM_BUILD_ROOT/build DESTDIR=$RPM_BUILD_ROOT/usr make install
+BUILD=$RPM_BUILD_ROOT/build DESTDIR=$RPM_BUILD_ROOT/usr LIBDIR=$RPM_BUILD_ROOT/%{_libdir} make install
 rm -rf $RPM_BUILD_ROOT/build
 
 %clean
