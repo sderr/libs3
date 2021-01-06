@@ -18,8 +18,6 @@ Buildrequires: make
 Requires: libxml2
 Requires: openssl
 
-%define debug_package %{nil}
-
 %description
 This package includes the libs3 shared object library, needed to run
 applications compiled against libs3, and additionally contains the s3
