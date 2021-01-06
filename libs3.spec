@@ -66,12 +66,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 /usr/bin/s3
-/usr/lib/libs3.so*
+%{_libdir}/libs3.so*
 
 %files devel
 %defattr(-,root,root,-)
 /usr/include/libs3.h
-/usr/lib/libs3.a
+%{_libdir}/libs3.a
 
 %changelog
 * Sat Aug 09 2008  <bryan@ischo,com> Bryan Ischo
