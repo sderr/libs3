@@ -252,6 +252,7 @@ $(LIBS3_SHARED): $(LIBS3_SOURCES:%.c=$(BUILD)/obj/%.do)
 	@ mkdir -p $(dir $@)
 	$(VERBOSE_SHOW) $(CC) -shared -Wl,-soname,libs3.so.$(LIBS3_VER_MAJOR) \
         -o $@ $^ $(LDFLAGS)
+	ln -sf libs3.so.$(LIBS3_VER_MAJOR) $(BUILD)/lib/libs3.so
 
 $(LIBS3_STATIC): $(LIBS3_SOURCES:%.c=$(BUILD)/obj/%.o)
 	$(QUIET_ECHO) $@: Building static library
