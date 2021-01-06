@@ -181,7 +181,7 @@ install: exported
                     $(DESTDIR)/bin/s3
 	$(QUIET_ECHO) \
         $(LIBDIR)/libs3.so.$(LIBS3_VER): Installing shared library
-	$(VERBOSE_SHOW) $(INSTALL) -Dps -m u+rw,go+r \
+	$(VERBOSE_SHOW) $(INSTALL) -Dps -m u+rwx,go+rx \
                $(BUILD)/lib/libs3.so.$(LIBS3_VER_MAJOR) \
                $(LIBDIR)/libs3.so.$(LIBS3_VER)
 	$(QUIET_ECHO) \
