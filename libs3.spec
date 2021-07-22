@@ -1,11 +1,11 @@
 Summary: C Library and Tools for Amazon S3 Access
 Name: libs3
-Version: trunk
+Version: bull
 Release: 1
 License: LGPL
 Group: Networking/Utilities
 URL: http://sourceforge.net/projects/reallibs3
-Source0: libs3-trunk.tar.gz
+Source0: libs3-bull.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root
 # Want to include curl dependencies, but older Fedora Core uses curl-devel,
 # and newer Fedora Core uses libcurl-devel ... have to figure out how to
@@ -17,8 +17,6 @@ Buildrequires: make
 # Requires: libcurl
 Requires: libxml2
 Requires: openssl
-
-%define debug_package %{nil}
 
 %description
 This package includes the libs3 shared object library, needed to run
@@ -57,7 +55,7 @@ http://s3.amazonaws.com).  Its design goals are:
 BUILD=$RPM_BUILD_ROOT/build make exported
 
 %install
-BUILD=$RPM_BUILD_ROOT/build DESTDIR=$RPM_BUILD_ROOT/usr make install
+BUILD=$RPM_BUILD_ROOT/build DESTDIR=$RPM_BUILD_ROOT/usr LIBDIR=$RPM_BUILD_ROOT/%{_libdir} make install
 rm -rf $RPM_BUILD_ROOT/build
 
 %clean
@@ -66,12 +64,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 /usr/bin/s3
-/usr/lib/libs3.so*
+%{_libdir}/libs3.so*
 
 %files devel
 %defattr(-,root,root,-)
 /usr/include/libs3.h
-/usr/lib/libs3.a
+%{_libdir}/libs3.a
 
 %changelog
 * Sat Aug 09 2008  <bryan@ischo,com> Bryan Ischo
